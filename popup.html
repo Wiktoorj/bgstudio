@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            
+        }
+
+        .overlay {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.75);
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.35s ease-in-out;
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+
+        .overlay.open {
+            opacity: 1;
+            pointer-events: inherit;
+        }
+
+        .overlay .modal {
+            background: white;
+            text-align: center;
+            padding: 40px 80px;
+            box-shadow: 0px 1px 10px rgba(255, 255, 255, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.35s ease-in-out;
+            max-height: 100vh;
+            width: 90%;
+            overflow-y: auto;
+        }
+
+        .overlay .modal.open {
+            opacity: 1;
+            pointer-events: inherit;
+        }
+
+        .overlay .modal.open .content {
+            transform: translate(0, 0px);
+            opacity: 1;
+        }
+
+        .overlay .modal .content {
+            transform: translate(0, -10px);
+            opacity: 0;
+            transition: 0.35s ease-in-out;
+        }
+
+        .overlay .modal .title {
+            margin-top: 0;
+        }
+
+        .btnCert {
+            width: 43%;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #DF5A11;
+            cursor: pointer;
+            border: 3px solid #DF5A11;
+            padding: 0.25em 0.5em;
+            box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+            position: absolute;
+            top: 48%;
+            left: 5%;
+            font-family: 'Teko', sans-serif;
+            animation: jumpCertBtn 2s infinite linear;
+            font-weight: 700;
+        }
+
+        .imgGroup {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%
+        }
+
+        img {
+            height: 100px;
+            border: 2px solid black;
+        }
+
+        .modal {
+            position: relative;
+            font-family: "Nunito", sans-serif;
+        }
+
+        .btnCloseCert {
+            color: black;
+            text-decoration: none;
+            padding: 5px 10px;
+            font-weight: 700px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <a href="#" class='open-modal btnCert' data-modal="#modal1">Sprawdz kwalifikacje</a>
+
+    <div class='modal' id='modal1'>
+        <div class='content'>
+            <h1 class='title'>Certyfikaty i uprawnienia: </h1>
+            <div class="imgGroup">
+                <img src="img/cert.png" alt="">
+                <img src="img/cert.png" alt="">
+                <img src="img/cert.png" alt="">
+                <img src="img/cert.png" alt="">
+                <img src="img/cert.png" alt=""></div>
+        </div>
+        <a href="#" class='close-modal btnCloseCert' data-modal="#modal1"> X </a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(".modal").each(function () {
+            $(this).wrap('<div class="overlay"></div>')
+        });
+
+        $(".open-modal").on('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation;
+
+            var $this = $(this),
+                modal = $($this).data("modal");
+
+            $(modal).parents(".overlay").addClass("open");
+            setTimeout(function () {
+                $(modal).addClass("open");
+            }, 350);
+
+            $(document).on('click', function (e) {
+                var target = $(e.target);
+
+                if ($(target).hasClass("overlay")) {
+                    $(target).find(".modal").each(function () {
+                        $(this).removeClass("open");
+                    });
+                    setTimeout(function () {
+                        $(target).removeClass("open");
+                    }, 350);
+                }
+
+            });
+
+        });
+
+        $(".close-modal").on('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation;
+
+            var $this = $(this),
+                modal = $($this).data("modal");
+
+            $(modal).removeClass("open");
+            setTimeout(function () {
+                $(modal).parents(".overlay").removeClass("open");
+            }, 350);
+
+        });
+    </script>
+</body>
+
+</html>

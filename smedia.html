@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>social</title>
+    <script src="https://kit.fontawesome.com/12b1a95cf1.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: black;
+            box-sizing: border-box;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .fb,
+        .ig,
+        .malpa,
+        .ph,
+        .plus {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 25px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid rgb(211, 65, 7);
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.2s ease-in;
+        }
+
+        .fb,
+        .ig,
+        .malpa,
+        .ph {
+            background-color: transparent;
+            border: none;
+            color: black;
+        }
+
+        .fb.rotate,
+        .ig.rotate,
+        .malpa.rotate,
+        .ph.rotate {
+            background-color: rgb(54, 47, 47);
+            border: 2px solid rgb(211, 65, 7);
+            color: rgb(211, 65, 7);
+            animation: jumpplus 4s infinite;
+        }
+
+        .malpa.rotate {
+            animation: jumpplus 4s 1s infinite;
+        }
+
+        .ph.rotate {
+            animation: jumpplus 4s 2s infinite;
+        }
+
+        .ig.rotate {
+            animation: jumpplus 4s 3s infinite;
+        }
+
+        .plus {
+            z-index: 1;
+            font-size: 45px;
+            font-weight: 700;
+            background-color: rgb(54, 47, 47);
+            border: 3px solid rgb(211, 65, 7);
+            color: rgb(211, 65, 7);
+            transition: .7s cubic-bezier(0.04, 0.99, 0.43, 1.39);
+            animation: jumpplus 3s infinite;
+        }
+
+        @keyframes jumpplus {
+            0% {
+                background-color: rgb(54, 47, 47);
+            }
+
+            45% {
+                background-color: rgb(54, 47, 47);
+                color: rgb(211, 65, 7);
+                border-color: rgb(211, 65, 7);
+            }
+
+            50% {
+                background-color: rgb(211, 65, 7);
+                color: rgb(54, 47, 47);
+                border-color: rgb(54, 47, 47);
+            }
+
+            55% {
+                background-color: rgb(54, 47, 47);
+                color: rgb(211, 65, 7);
+                border-color: rgb(211, 65, 7);
+            }
+
+            100% {
+                background-color: rgb(54, 47, 47);
+            }
+        }
+
+        .plus.rotate {
+            transform: translate(-50%, -50%) rotate(225deg);
+            animation-play-state: paused;
+        }
+
+        .fb.rotate {
+            transform: translate(-50%, -180%);
+        }
+
+        .ig.rotate {
+            transform: translate(-180%, -50%);
+        }
+
+        .malpa.rotate {
+            transform: translate(+80%, -50%);
+        }
+
+        .ph.rotate {
+            transform: translate(-50%, 80%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="social">
+        <div class="plus">+</i></div>
+        <a target="_blank" href='https://www.facebook.com/BG-Studio-Treningu-Personalnego-101866785787510' class="fb"><i class="fa fa-brands fa-facebook"></i></a>
+        <a target="_blank" href='https://www.instagram.com/tomekk.b/?igshid=YmMyMTA2M2Y=&fbclid=IwAR0dxtWcApzVBlR5JEaxEFaKU_YraSkUjY72QqZJF6aXPcOWMGizNcPMyhM' class="ig"><i class="fa fa-brands fa-instagram"></i></a>
+        <a target="_blank" href='mailto:bg.studiotreningu@gmail.coml' class="malpa"><i class="fa fa-solid fa-at"></i></a>
+        <a target="_blank" href='tel:+48698626266' class="ph"><i class="fa fa-solid fa-phone"></i></a>
+    </div>
+
+    <script>
+        const plus = document.querySelector('.plus');
+        const fb = document.querySelector('.fb')
+        const ig = document.querySelector('.ig')
+        const malpa = document.querySelector('.malpa')
+        const ph = document.querySelector('.ph');
+
+        const social = function (e) {
+            e.preventDefault()
+            plus.classList.toggle('rotate')
+            fb.classList.toggle('rotate')
+            ig.classList.toggle('rotate')
+            malpa.classList.toggle('rotate')
+            ph.classList.toggle('rotate')
+        }
+
+        plus.addEventListener('click', social)
+    </script>
+</body>
+
+</html>
