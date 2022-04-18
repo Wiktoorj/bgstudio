@@ -347,8 +347,8 @@ body {
 
 /* postac Tomka */
 .mobile__page-2 .mobile__page-poly {
-    background-image: url(../img/2.jpg);
-    background-position-x: 30%;
+    background-image: url(../img/6c.jpg);
+    background-position-x: 70%;
 }
 
 .tbFace {
@@ -362,12 +362,12 @@ body {
     top: 70%;
     left: 27%;
     width: 46%;
-    background-color: RGBA(0, 0, 0, .6);
+    background-color: RGBA(0, 0, 0, .7);
     border-radius: 15px;
     transform: translate(-50%, -50%);
     text-align: center;
     padding: 2%;
-    z-index: 1;
+    /* z-index: 1; */
 
 }
 
@@ -406,6 +406,65 @@ body {
     animation: jumpCertBtn 2s infinite linear;
     font-weight: 700;
     background-color: white;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 66%;
+    position: absolute;
+    top: 17%;
+    left: -100%;
+    transition: .2s;
+    background-color: white;
+    border-top: 3px solid #DF5A11;
+    border-bottom: 3px solid #DF5A11;
+    text-align: center;
+    font-family: 'Teko', sans-serif;
+    overflow: hidden;
+}
+
+.modal.active {
+    left: 0;
+}
+
+.title {
+    font-size: 30px;
+    color: #2c2c2c;
+}
+
+.imgGroup {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-wrap: wrap;
+    height: 40vh;
+    width: 100%;
+}
+
+.imgGroup img {
+    height: 100px;
+    width: 26%;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.btnCloseCert {
+    width: 35%;
+    color: #2c2c2c;
+    text-decoration: none;
+    padding: 5px 5%;
+    font-weight: 700;
+    background-color: #DF5A11;
+    border: 2px solid #2c2c2c;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: 'Teko', sans-serif;
+    letter-spacing: 2px;
+    margin: 0 auto;
 }
 
 
@@ -530,7 +589,7 @@ iframe {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 70vh;
-    z-index: -1;
+    z-index: 0;
 }
 
 /* kontakt */
@@ -785,100 +844,6 @@ iframe {
     text-align: center;
     width: 100%;
 }
-
-
-/* popup */
-.overlay {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.75);
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.35s ease-in-out;
-    max-height: 100vh;
-    overflow-y: auto;
-}
-
-.overlay.open {
-    opacity: 1;
-    pointer-events: inherit;
-
-    z-index: 7;
-}
-
-.overlay .modal {
-    background: white;
-    text-align: center;
-    padding: 40px 80px;
-    box-shadow: 0px 1px 10px rgba(255, 255, 255, 0.35);
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.35s ease-in-out;
-    max-height: 100vh;
-    width: 90vw;
-    height: 70vh;
-    overflow-y: auto;
-}
-
-.overlay .modal.open {
-    opacity: 1;
-    pointer-events: inherit;
-}
-
-.overlay .modal.open .content {
-    transform: translate(0, 0px);
-    opacity: 1;
-}
-
-.overlay .modal .content {
-    transform: translate(0, -10px);
-    opacity: 0;
-    transition: 0.35s ease-in-out;
-}
-
-.overlay .modal .title {
-    margin-top: 0;
-}
-
-.imgGroup {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    height: 100%;
-    width: 100%;
-    margin-top: 40%;
-}
-
-.imgGroup img {
-    height: 100px;
-    margin-right: 10px;
-    border: 2px solid black;
-}
-
-.modal {
-    position: relative;
-    font-family: "Nunito", sans-serif;
-}
-
-.btnCloseCert {
-    color: black;
-    text-decoration: none;
-    padding: 5px 10px;
-    font-weight: 700px;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
 
 /* wielkosc nav active w landscape */
 @media (min-height: 320px) and (orientation: landscape) {
