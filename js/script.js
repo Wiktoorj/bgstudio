@@ -59,13 +59,23 @@ window.addEventListener('load', () => {
 const openPopUp = document.querySelector('.btnCert');
 const closePopUp = document.querySelector('.btnCloseCert');
 const modal = document.querySelector('.modal');
+const opisTomek = document.querySelector('.tbTitle')
+
 
 openPopUp.addEventListener('click', () => {
   modal.classList.add('active');
+  openPopUp.classList.add('active')
+  opisTomek.classList.add('active')
+  const zmienIndexTrojkata = document.querySelector('.page-active-2')
+  zmienIndexTrojkata.style.right = '-100%';
 })
 
 closePopUp.addEventListener('click', () => {
   modal.classList.remove('active');
+  openPopUp.classList.remove('active')
+  opisTomek.classList.remove('active')
+  const zmienIndexTrojkata = document.querySelector('.page-active-2')
+  zmienIndexTrojkata.style.right = '-1px';
 })
 
 
