@@ -45,10 +45,12 @@ $(document).ready(function () {
 
 //preloader
 const preload = document.querySelector('.preloader');
+let yes = new Audio('sound.wav');
 
 preload.classList.add('show-preloader');
 window.addEventListener('load', () => {
   preload.classList.remove('show-preloader');
+  yes.play();
 
   // setTimeout(() => {
   //   preload.classList.remove('show-preloader');

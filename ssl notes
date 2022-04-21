@@ -1,0 +1,5 @@
+Successfully received certificate.
+Certificate is saved at: C:\Certbot\live\bgstudio.pl\fullchain.pem
+Key is saved at:         C:\Certbot\live\bgstudio.pl\privkey.pem
+This certificate expires on 2022-07-19.
+These files will be updated when the certificate renews.
